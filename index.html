@@ -1,705 +1,606 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Z Career</title>
-
-<style>
-
-:root{
---bg:#071428;
---bg2:#0F2345;
---card:rgba(255,255,255,.06);
---gold:#D8B56A;
---text:#ffffff;
---sub:#BFD0E2;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-background:
-linear-gradient(
-180deg,
-var(--bg),
-var(--bg2)
-);
-color:var(--text);
-font-family:
-Inter,
-Arial,
-sans-serif;
-}
-
-nav{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-display:flex;
-
-justify-content:
-space-between;
-
-padding:24px 64px;
-
-background:
-rgba(
-7,
-20,
-40,
-0.94
-);
-
-backdrop-filter:
-blur(18px);
-
-z-index:999;
-
-}
-
-.logo{
-
-font-size:32px;
-
-font-weight:800;
-
-color:var(--gold);
-
-}
-
-.menu{
-
-display:flex;
-
-gap:30px;
-
-align-items:center;
-
-}
-
-.menu a{
-
-color:white;
-
-text-decoration:none;
-
-}
-
-.lang{
-
-cursor:pointer;
-
-color:var(--gold);
-
-}
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-padding:120px 24px;
-
-}
-
-.hero h1{
-
-font-size:72px;
-
-line-height:1.1;
-
-margin-bottom:24px;
-
-}
-
-.hero p{
-
-font-size:22px;
-
-max-width:900px;
-
-color:var(--sub);
-
-margin:auto;
-
-}
-
-.btn{
-
-margin-top:40px;
-
-padding:18px 34px;
-
-border:none;
-
-border-radius:14px;
-
-font-size:18px;
-
-cursor:pointer;
-
-background:var(--gold);
-
-color:#071428;
-
-}
-
-.section{
-
-padding:120px 80px;
-
-}
-
-.title{
-
-text-align:center;
-
-font-size:48px;
-
-color:var(--gold);
-
-margin-bottom:60px;
-
-}
-
-.grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(
-auto-fit,
-minmax(
-280px,
-1fr
-));
-
-gap:30px;
-
-}
-
-.card{
-
-background:
-var(--card);
-
-backdrop-filter:
-blur(18px);
-
-padding:36px;
-
-border-radius:24px;
-
-}
-
-.metric{
-
-font-size:48px;
-
-color:var(--gold);
-
-}
-
-.case{
-
-display:flex;
-
-flex-direction:column;
-
-gap:16px;
-
-}
-
-.label{
-
-color:var(--gold);
-
-font-size:14px;
-
-text-transform:
-uppercase;
-
-}
-
-.form{
-
-max-width:760px;
-
-margin:auto;
-
-}
-
-input,
-textarea{
-
-width:100%;
-
-padding:18px;
-
-border:none;
-
-border-radius:12px;
-
-margin-bottom:18px;
-
-}
-
-.submit{
-
-width:100%;
-
-padding:18px;
-
-border:none;
-
-border-radius:12px;
-
-background:var(--gold);
-
-}
-
-.chat{
-
-position:fixed;
-
-bottom:24px;
-
-right:24px;
-
-background:var(--gold);
-
-color:#071428;
-
-padding:18px;
-
-border-radius:999px;
-
-font-weight:700;
-
-}
-
-footer{
-
-padding:80px;
-
-text-align:center;
-
-color:#8EA2BB;
-
-}
-
-@media(max-width:768px){
-
-nav{
-
-padding:18px;
-
-}
-
-.hero h1{
-
-font-size:42px;
-
-}
-
-.section{
-
-padding:80px 24px;
-
-}
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z Career | 留学生求职陪跑专家</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1e40af 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(147, 197, 253, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(30, 64, 175, 0.25);
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.85);
+        }
+        
+        .stat-number {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .service-icon {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            box-shadow: 0 10px 40px -10px rgba(37, 99, 235, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #60a5fa);
+            margin-top: 16px;
+            border-radius: 2px;
+        }
+        
+        .offer-card {
+            background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 1px solid #e2e8f0;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .lang-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .lang-btn.active {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .logo-text span {
+            color: #3b82f6;
+        }
+    </style>
 </head>
-
-<body>
-
-<nav>
-
-<div class="logo">
-Z Career
-</div>
-
-<div class="menu">
-
-<a href="#service">
-Services
-</a>
-
-<a href="#stories">
-Stories
-</a>
-
-<a href="#contact">
-Contact
-</a>
-
-<div class="lang">
-
-中｜EN
-
-</div>
-
-</div>
-
-</nav>
-
-<section class="hero">
-
-<div>
-
-<h1>
-
-留学之后<br>
-不必独自面对求职
-
-</h1>
-
-<p>
-
-Build your career with clarity,
-confidence and long-term growth.
-
-</p>
-
-<button class="btn">
-
-免费获取求职规划
-
-</button>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2 class="title">
-
-Global Results
-
-</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<div class="metric">
-
-3000+
-
-</div>
-
-Students
-
-</div>
-
-<div class="card">
-
-<div class="metric">
-
-500+
-
-</div>
-
-Mentors
-
-</div>
-
-<div class="card">
-
-<div class="metric">
-
-6000+
-
-</div>
-
-Opportunities
-
-</div>
-
-<div class="card">
-
-<div class="metric">
-
-20+
-
-</div>
-
-Industries
-
-</div>
-
-</div>
-
-</section>
-
-<section
-id="stories"
-class="section">
-
-<h2 class="title">
-
-Student Stories
-
-</h2>
-
-<div class="grid">
-
-<div class="card case">
-
-<div class="label">
-
-CASE 01
-
-</div>
-
-<h3>
-
-🇬🇧 UK · MSc
-
-</h3>
-
-<p>
-
-背景：
-无相关经历
-
-</p>
-
-<p>
-
-挑战：
-方向不明确
-
-</p>
-
-<p>
-
-方案：
-定位＋准备＋训练
-
-</p>
-
-<p>
-
-结果：
-进入目标机会流程
-
-</p>
-
-</div>
-
-<div class="card case">
-
-<div class="label">
-
-CASE 02
-
-</div>
-
-<h3>
-
-🇺🇸 US · CS
-
-</h3>
-
-<p>
-
-背景：
-反馈有限
-
-</p>
-
-<p>
-
-挑战：
-表达能力
-
-</p>
-
-<p>
-
-方案：
-模拟面试
-
-</p>
-
-<p>
-
-结果：
-推进多轮
-
-</p>
-
-</div>
-
-<div class="card case">
-
-<div class="label">
-
-CASE 03
-
-</div>
-
-<h3>
-
-🇭🇰 HK · Business
-
-</h3>
-
-<p>
-
-背景：
-转专业
-
-</p>
-
-<p>
-
-挑战：
-项目不足
-
-</p>
-
-<p>
-
-方案：
-陪跑支持
-
-</p>
-
-<p>
-
-结果：
-进入目标行业
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-<section
-id="service"
-class="section">
-
-<h2 class="title">
-
-Career Journey
-
-</h2>
-
-<div class="grid">
-
-<div class="card">
-01 定位<br>Positioning
-</div>
-
-<div class="card">
-02 准备<br>Preparation
-</div>
-
-<div class="card">
-03 执行<br>Execution
-</div>
-
-<div class="card">
-04 Offer
-</div>
-
-</div>
-
-</section>
-
-<section
-id="contact"
-class="section">
-
-<h2 class="title">
-
-Start Your Journey
-
-</h2>
-
-<div class="form">
-
-<input placeholder="姓名 Name">
-
-<input placeholder="学校 School">
-
-<input placeholder="专业 Major">
-
-<input placeholder="目标方向 Target">
-
-<input placeholder="微信 WeChat">
-
-<textarea
-rows="5"
-placeholder="补充说明 Notes">
-</textarea>
-
-<button class="submit">
-
-获取专属建议
-
-</button>
-
-<p
-style="
-text-align:center;
-margin-top:20px;
-">
-
-微信：MLWCDFX
-
-</p>
-
-</div>
-
-</section>
-
-<div class="chat">
-
-🎓 Career Assistant
-
-</div>
-
-<footer>
-
-Z Career
-
-<br>
-
-Global Career Accelerator
-
-</footer>
-
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="logo-text text-white">Z<span>Career</span></a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-slate-200 hover:text-white transition-colors text-sm font-medium" data-zh="首页" data-en="Home">首页</a>
+                    <a href="#services" class="nav-link text-slate-200 hover:text-white transition-colors text-sm font-medium" data-zh="服务介绍" data-en="Services">服务介绍</a>
+                    <a href="#cases" class="nav-link text-slate-200 hover:text-white transition-colors text-sm font-medium" data-zh="成功案例" data-en="Cases">成功案例</a>
+                    <a href="#about" class="nav-link text-slate-200 hover:text-white transition-colors text-sm font-medium" data-zh="关于我们" data-en="About">关于我们</a>
+                    <a href="#contact" class="nav-link text-slate-200 hover:text-white transition-colors text-sm font-medium" data-zh="联系我们" data-en="Contact">联系我们</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="flex bg-slate-700/50 rounded-full p-0.5">
+                        <button onclick="switchLang('zh')" class="lang-btn active px-3 py-1 rounded-full text-xs font-medium" id="btn-zh">中</button>
+                        <button onclick="switchLang('en')" class="lang-btn px-3 py-1 rounded-full text-xs font-medium text-slate-300" id="btn-en">EN</button>
+                    </div>
+                    <a href="#contact" class="btn-primary text-white px-5 py-2 rounded-full text-sm font-semibold hidden md:block" data-zh="免费咨询" data-en="Free Consult">免费咨询</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6 py-32 relative z-10 w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="inline-block bg-blue-500/20 border border-blue-400/30 text-blue-200 px-4 py-2 rounded-full text-sm font-medium mb-6" data-zh="英美澳加留学生专属求职平台" data-en="Exclusive Career Platform for International Students">
+                        英美澳加留学生专属求职平台
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+                        <span data-zh="斩获名企" data-en="Land Your Dream">斩获名企</span><br>
+                        <span class="gradient-text" data-zh="Dream Offer" data-en="Offer at Top Firms">Dream Offer</span>
+                    </h1>
+                    <p class="text-slate-300 text-lg mb-8 max-w-lg leading-relaxed" data-zh="依托30年+求职大数据，3000+全球名企导师，为留学生提供金融、科技、咨询、快消等高薪领域全流程定制化求职方案。" data-en="Leveraging 30+ years of career data and 3000+ global mentors, we provide tailored career solutions in finance, tech, consulting, and FMCG for international students.">
+                        依托30年+求职大数据，3000+全球名企导师，为留学生提供金融、科技、咨询、快消等高薪领域全流程定制化求职方案。
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="btn-primary text-white px-8 py-3.5 rounded-full font-semibold" data-zh="立即咨询" data-en="Get Started">立即咨询</a>
+                        <a href="#services" class="border border-slate-500 text-slate-200 px-8 py-3.5 rounded-full font-semibold hover:bg-white/10 transition-colors" data-zh="了解服务" data-en="Learn More">了解服务</a>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-slate-700/50">
+                        <div>
+                            <div class="stat-number text-3xl font-bold">3000+</div>
+                            <div class="text-slate-400 text-sm mt-1" data-zh="名企导师" data-en="Industry Mentors">名企导师</div>
+                        </div>
+                        <div>
+                            <div class="stat-number text-3xl font-bold">27W+</div>
+                            <div class="text-slate-400 text-sm mt-1" data-zh="合作企业" data-en="Partner Companies">合作企业</div>
+                        </div>
+                        <div>
+                            <div class="stat-number text-3xl font-bold">98%</div>
+                            <div class="text-slate-400 text-sm mt-1" data-zh="学员满意度" data-en="Satisfaction Rate">学员满意度</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
+                        <div class="absolute -bottom-4 -right-4 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl"></div>
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=500&fit=crop" 
+                             alt="Global Career" 
+                             class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title inline-block text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-zh="全流程定制化服务" data-en="Tailored Full-Process Services">全流程定制化服务</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto mt-8" data-zh="5V1专属导师团队，从职业规划到Offer谈判，全程陪跑助力斩获心仪Offer" data-en="5V1 mentor team, from career planning to offer negotiation, supporting you every step of the way">
+                    5V1专属导师团队，从职业规划到Offer谈判，全程陪跑助力斩获心仪Offer
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="service-icon w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-zh="1v1职业规划" data-en="1-on-1 Career Planning">1v1职业规划</h3>
+                    <p class="text-slate-500 leading-relaxed" data-zh="结合背景与目标，明确求职赛道，定制专属求职时间线与行动计划" data-en="Analyze your background and goals, define your career path, and create a personalized action plan">
+                        结合背景与目标，明确求职赛道，定制专属求职时间线与行动计划
+                    </p>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="service-icon w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-zh="简历精修" data-en="Resume Polishing">简历精修</h3>
+                    <p class="text-slate-500 leading-relaxed" data-zh="目标企业在职导师定向辅导，STAR法则重塑经历，打造HR一眼相中的简历" data-en="Mentors from target companies refine your resume using STAR method to stand out to HR">
+                        目标企业在职导师定向辅导，STAR法则重塑经历，打造HR一眼相中的简历
+                    </p>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="service-icon w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-zh="笔面试辅导" data-en="Interview Coaching">笔面试辅导</h3>
+                    <p class="text-slate-500 leading-relaxed" data-zh="海量真题库+模拟面试+全面跟进，精准击破各环节难点" data-en="Extensive question bank + mock interviews + comprehensive support to ace every round">
+                        海量真题库+模拟面试+全面跟进，精准击破各环节难点
+                    </p>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="service-icon w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-zh="内推直推" data-en="Referral Network">内推直推</h3>
+                    <p class="text-slate-500 leading-relaxed" data-zh="27W+合作企业资源，跳出简历池，直达HR与业务部门" data-en="270K+ partner companies, skip the resume pool and reach HR and hiring teams directly">
+                        27W+合作企业资源，跳出简历池，直达HR与业务部门
+                    </p>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="service-icon w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-zh="背景提升" data-en="Background Enhancement">背景提升</h3>
+                    <p class="text-slate-500 leading-relaxed" data-zh="名企实战项目经历，补足职业技能短板，提升核心竞争力" data-en="Real company projects to build skills and strengthen your competitive edge">
+                        名企实战项目经历，补足职业技能短板，提升核心竞争力
+                    </p>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
+                    <div class="service-icon w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" data-zh="Offer谈判" data-en="Offer Negotiation">Offer谈判</h3>
+                    <p class="text-slate-500 leading-relaxed" data-zh="专业导师指导薪资谈判，争取最优待遇，收获心仪Offer" data-en="Expert guidance on salary negotiation to secure the best compensation package">
+                        专业导师指导薪资谈判，争取最优待遇，收获心仪Offer
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section id="cases" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title inline-block text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-zh="学员成功案例" data-en="Success Stories">学员成功案例</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto mt-8" data-zh="覆盖金融、科技、咨询、快消、会计五大领域，帮助数百位学员斩获心仪Offer" data-en="Covering finance, tech, consulting, FMCG, and accounting, helping hundreds of students land their dream offers">
+                    覆盖金融、科技、咨询、快消、会计五大领域，帮助数百位学员斩获心仪Offer
+                </p>
+            </div>
+            
+            <!-- Industry Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="industry-tab active px-6 py-2 rounded-full text-sm font-medium bg-blue-600 text-white" data-industry="tech" data-zh="科技" data-en="Tech">科技</button>
+                <button class="industry-tab px-6 py-2 rounded-full text-sm font-medium bg-white text-slate-600 border border-slate-200 hover:border-blue-300 transition-colors" data-industry="finance" data-zh="金融" data-en="Finance">金融</button>
+                <button class="industry-tab px-6 py-2 rounded-full text-sm font-medium bg-white text-slate-600 border border-slate-200 hover:border-blue-300 transition-colors" data-industry="consulting" data-zh="咨询" data-en="Consulting">咨询</button>
+                <button class="industry-tab px-6 py-2 rounded-full text-sm font-medium bg-white text-slate-600 border border-slate-200 hover:border-blue-300 transition-colors" data-industry="fmcg" data-zh="快消" data-en="FMCG">快消</button>
+                <button class="industry-tab px-6 py-2 rounded-full text-sm font-medium bg-white text-slate-600 border border-slate-200 hover:border-blue-300 transition-colors" data-industry="accounting" data-zh="会计" data-en="Accounting">会计</button>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="offer-card rounded-xl p-6 card-hover">
+                    <div class="text-2xl font-bold text-blue-700 mb-2">Google</div>
+                    <div class="text-slate-700 font-medium mb-1" data-zh="商业分析师" data-en="Business Analyst">商业分析师</div>
+                    <div class="text-amber-600 text-sm font-semibold" data-zh="年薪 ¥45W+" data-en="¥450K+ / year">年薪 ¥45W+</div>
+                </div>
+                
+                <div class="offer-card rounded-xl p-6 card-hover">
+                    <div class="text-2xl font-bold text-green-700 mb-2">Microsoft</div>
+                    <div class="text-slate-700 font-medium mb-1" data-zh="软件工程师" data-en="Software Engineer">软件工程师</div>
+                    <div class="text-amber-600 text-sm font-semibold" data-zh="年薪 ¥50W+" data-en="¥500K+ / year">年薪 ¥50W+</div>
+                </div>
+                
+                <div class="offer-card rounded-xl p-6 card-hover">
+                    <div class="text-2xl font-bold text-slate-800 mb-2">Morgan Stanley</div>
+                    <div class="text-slate-700 font-medium mb-1" data-zh="投资分析师" data-en="Investment Analyst">投资分析师</div>
+                    <div class="text-amber-600 text-sm font-semibold" data-zh="年薪 ¥60W+" data-en="¥600K+ / year">年薪 ¥60W+</div>
+                </div>
+                
+                <div class="offer-card rounded-xl p-6 card-hover">
+                    <div class="text-2xl font-bold text-yellow-600 mb-2">McKinsey</div>
+                    <div class="text-slate-700 font-medium mb-1" data-zh="商业咨询顾问" data-en="Business Consultant">商业咨询顾问</div>
+                    <div class="text-amber-600 text-sm font-semibold" data-zh="年薪 ¥55W+" data-en="¥550K+ / year">年薪 ¥55W+</div>
+                </div>
+                
+                <div class="offer-card rounded-xl p-6 card-hover">
+                    <div class="text-2xl font-bold text-orange-600 mb-2">Amazon</div>
+                    <div class="text-slate-700 font-medium mb-1" data-zh="数据科学家" data-en="Data Scientist">数据科学家</div>
+                    <div class="text-amber-600 text-sm font-semibold" data-zh="年薪 ¥52W+" data-en="¥520K+ / year">年薪 ¥52W+</div>
+                </div>
+                
+                <div class="offer-card rounded-xl p-6 card-hover">
+                    <div class="text-2xl font-bold text-blue-900 mb-2">P&G</div>
+                    <div class="text-slate-700 font-medium mb-1" data-zh="品牌管培生" data-en="Brand Management Trainee">品牌管培生</div>
+                    <div class="text-amber-600 text-sm font-semibold" data-zh="年薪 ¥30W+" data-en="¥300K+ / year">年薪 ¥30W+</div>
+                </div>
+                
+                <div class="offer-card rounded-xl p-6 card-hover">
+                    <div class="text-2xl font-bold text-slate-700 mb-2">Deloitte</div>
+                    <div class="text-slate-700 font-medium mb-1" data-zh="审计分析师" data-en="Audit Analyst">审计分析师</div>
+                    <div class="text-amber-600 text-sm font-semibold" data-zh="年薪 ¥28W+" data-en="¥280K+ / year">年薪 ¥28W+</div>
+                </div>
+                
+                <div class="offer-card rounded-xl p-6 card-hover">
+                    <div class="text-2xl font-bold text-red-600 mb-2">字节跳动</div>
+                    <div class="text-slate-700 font-medium mb-1" data-zh="产品经理" data-en="Product Manager">产品经理</div>
+                    <div class="text-amber-600 text-sm font-semibold" data-zh="年薪 ¥40W+" data-en="¥400K+ / year">年薪 ¥40W+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="section-title text-3xl md:text-4xl font-bold text-slate-900 mb-6" data-zh="关于 Z Career" data-en="About Z Career">关于 Z Career</h2>
+                    <p class="text-slate-600 leading-relaxed mb-6" data-zh="Z Career 专注于留学生求职服务，致力于帮助英美澳加等国家的留学生群体斩获全球名企高薪Offer。" data-en="Z Career specializes in career services for international students, helping students from the UK, US, Australia, and Canada land high-paying offers at top global companies.">
+                        Z Career 专注于留学生求职服务，致力于帮助英美澳加等国家的留学生群体斩获全球名企高薪Offer。
+                    </p>
+                    <p class="text-slate-600 leading-relaxed mb-8" data-zh="依托深厚的行业资源与专业导师团队，我们提供从职业规划、简历优化、笔面试辅导到名企内推的全流程定制化服务，助力每一位留学生实现职业理想。" data-en="With deep industry resources and expert mentors, we provide end-to-end tailored services from career planning to referrals, empowering every international student to achieve their career goals.">
+                        依托深厚的行业资源与专业导师团队，我们提供从职业规划、简历优化、笔面试辅导到名企内推的全流程定制化服务，助力每一位留学生实现职业理想。
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-900" data-zh="3000+ 全球名企在职导师" data-en="3000+ mentors from top global firms">3000+ 全球名企在职导师</h4>
+                                <p class="text-slate-500 text-sm mt-1" data-zh="来自投行、咨询、科技、快消等领域的资深从业者" data-en="Senior professionals from investment banking, consulting, tech, FMCG and more">来自投行、咨询、科技、快消等领域的资深从业者</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-900" data-zh="27W+ 合作企业资源" data-en="270K+ partner company resources">27W+ 合作企业资源</h4>
+                                <p class="text-slate-500 text-sm mt-1" data-zh="覆盖全球100+世界五百强企业内推通道" data-en="Referral channels at 100+ Fortune 500 companies worldwide">覆盖全球100+世界五百强企业内推通道</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-900" data-zh="5V1 定制化服务体系" data-en="5V1 tailored service system">5V1 定制化服务体系</h4>
+                                <p class="text-slate-500 text-sm mt-1" data-zh="授课+教研+产品+学管+资源导师全流程陪跑" data-en="Teaching + research + product + student management + resource mentors">授课+教研+产品+学管+资源导师全流程陪跑</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=700&fit=crop" 
+                         alt="Our Team" 
+                         class="rounded-2xl shadow-xl w-full object-cover h-[600px]">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
+                        <div class="stat-number text-4xl font-bold">98%</div>
+                        <div class="text-slate-600 text-sm mt-1" data-zh="学员Offer成功率" data-en="Offer Success Rate">学员Offer成功率</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-900 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="section-title text-3xl md:text-4xl font-bold text-white mb-6" data-zh="联系我们" data-en="Contact Us">联系我们</h2>
+                    <p class="text-slate-400 leading-relaxed mb-10" data-zh="填写表单，专属顾问将在24小时内与您联系，为您定制专属求职方案。" data-en="Fill out the form and our consultant will contact you within 24 hours to create a personalized career plan.">
+                        填写表单，专属顾问将在24小时内与您联系，为您定制专属求职方案。
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-slate-400 text-sm" data-zh="商务邮箱" data-en="Email">商务邮箱</div>
+                                <div class="text-white font-medium">contact@zcareer.com</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-slate-400 text-sm" data-zh="办公地址" data-en="Office">办公地址</div>
+                                <div class="text-white font-medium" data-zh="上海市浦东新区陆家嘴金融中心" data-en="Lujiazui Financial Center, Shanghai">上海市浦东新区陆家嘴金融中心</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-slate-400 text-sm" data-zh="服务时间" data-en="Service Hours">服务时间</div>
+                                <div class="text-white font-medium" data-zh="周一至周日 9:00 - 21:00" data-en="Mon - Sun 9:00 - 21:00">周一至周日 9:00 - 21:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-2xl">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6" data-zh="免费领取求职评估" data-en="Free Career Assessment">免费领取求职评估</h3>
+                    <form id="contactForm" class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2" data-zh="姓名" data-en="Name">姓名</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-slate-200 rounded-lg text-sm transition-all" placeholder="请输入您的姓名">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2" data-zh="联系邮箱" data-en="Email">联系邮箱</label>
+                            <input type="email" required class="w-full px-4 py-3 border border-slate-200 rounded-lg text-sm transition-all" placeholder="your@email.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2" data-zh="目标行业" data-en="Target Industry">目标行业</label>
+                            <select class="w-full px-4 py-3 border border-slate-200 rounded-lg text-sm transition-all bg-white">
+                                <option value="" data-zh="请选择目标行业" data-en="Select industry">请选择目标行业</option>
+                                <option value="tech" data-zh="互联网/科技" data-en="Tech / Internet">互联网/科技</option>
+                                <option value="finance" data-zh="金融/投行" data-en="Finance / Banking">金融/投行</option>
+                                <option value="consulting" data-zh="管理咨询" data-en="Consulting">管理咨询</option>
+                                <option value="fmcg" data-zh="快消/零售" data-en="FMCG / Retail">快消/零售</option>
+                                <option value="accounting" data-zh="四大/会计" data-en="Big 4 / Accounting">四大/会计</option>
+                                <option value="other" data-zh="其他" data-en="Other">其他</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2" data-zh="留言" data-en="Message">留言</label>
+                            <textarea rows="3" class="w-full px-4 py-3 border border-slate-200 rounded-lg text-sm transition-all resize-none" placeholder="请简单描述您的求职需求"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full btn-primary text-white py-3.5 rounded-lg font-semibold" data-zh="提交咨询" data-en="Submit">提交咨询</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="logo-text text-white mb-6 md:mb-0">Z<span>Career</span></div>
+                <div class="text-slate-500 text-sm">
+                    © 2026 Z Career. All rights reserved. | <span data-zh="留学生求职专家" data-en="Your Global Career Partner">留学生求职专家</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switch
+        let currentLang = 'zh';
+        
+        function switchLang(lang) {
+            currentLang = lang;
+            
+            // Update buttons
+            document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-zh').classList.toggle('text-slate-300', lang !== 'zh');
+            document.getElementById('btn-en').classList.toggle('text-slate-300', lang !== 'en');
+            
+            // Update all elements
+            document.querySelectorAll('[data-zh]').forEach(el => {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+            
+            // Update HTML lang
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2');
+            }
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const msg = currentLang === 'zh' 
+                ? '提交成功！我们的顾问将在24小时内与您联系。' 
+                : 'Submitted successfully! Our consultant will contact you within 24 hours.';
+            alert(msg);
+            this.reset();
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Industry tabs (visual only)
+        document.querySelectorAll('.industry-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.industry-tab').forEach(t => {
+                    t.classList.remove('bg-blue-600', 'text-white');
+                    t.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+                });
+                this.classList.add('bg-blue-600', 'text-white');
+                this.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+            });
+        });
+    </script>
 </body>
-
 </html>
